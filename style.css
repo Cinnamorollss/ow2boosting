@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
 
 @layer reset {
-
   *,
   ::before,
   ::after {
@@ -36,19 +35,32 @@
 @layer demo {
   .navbar {
     min-block-size: var(--nav-block-size);
-    display: grid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     inset-block-start: 0;
     inset-inline: 0;
     background-color: white;
     z-index: var(--layer-3);
-    place-items: center end;
     padding-block: var(--size-3);
     padding-inline: var(--size-5);
 
     @media (width >=600px) {
       padding-inline: 6dvi;
     }
+  }
+
+  .navbar ul {
+    display: flex;
+    list-style: none;
+    gap: var(--size-4);
+  }
+
+  .navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: var(--font-weight-6);
   }
 
   .nav-cta-btn {
@@ -253,153 +265,4 @@
     opacity: 0.5;
   }
 
-  .card-4 {
-    translate: 45cqi 40cqb;
-    opacity: 0.5;
-  }
-
-  .content-1 {
-    --_text-gradient: linear-gradient(227deg,
-        #1400c7 0%,
-        #00bbff 100%);
-  }
-
-  .content-2 {
-    --_text-gradient: linear-gradient(227deg,
-        #28dc28 0%,
-        #00bbff 100%);
-  }
-
-  .content-3 {
-    --_text-gradient: linear-gradient(227deg,
-        #1400c7 0%,
-        #b800b1 100%);
-  }
-
-  .content-4 {
-    --_text-gradient: linear-gradient(227deg,
-        #b800b1 0%,
-        #f50000 100%);
-  }
-
-  .text-highlight {
-    background: var(--_text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-  }
-}
-
-@supports (animation-timeline: scroll()) {
-  body {
-    timeline-scope: --content-1, --content-2, --content-3, --content-4;
-  }
-
-  .section {
-    view-timeline-name: --section;
-  }
-
-  .content-1 {
-    view-timeline-name: --content-1;
-  }
-
-  .content-2 {
-    view-timeline-name: --content-2;
-  }
-
-  .content-3 {
-    view-timeline-name: --content-3;
-  }
-
-  .content-4 {
-    view-timeline-name: --content-4;
-  }
-
-  .card {
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-  }
-
-  .card-1 {
-    animation-timeline: --content-1;
-    animation-name: slide-up-first-card;
-  }
-
-  .card-2 {
-    animation-timeline: --content-2;
-    animation-name: slide-up-card;
-  }
-
-  .card-3 {
-    animation-timeline: --content-3;
-    animation-name: slide-up-card;
-  }
-
-  .card-4 {
-    animation-timeline: --content-4;
-    animation-name: slide-up-card;
-  }
-
-  .video-visual {
-    animation-timeline: --section;
-    animation-range-end: exit 110%;
-    animation-name: update-hue;
-    animation-timing-function: step-end;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes update-hue {
-    0% {
-      filter: hue-rotate(210deg);
-    }
-
-    25% {
-      filter: hue-rotate(150deg);
-    }
-
-    45% {
-      filter: hue-rotate(300deg);
-    }
-
-    60% {
-      filter: hue-rotate(4deg);
-    }
-  }
-
-  @keyframes slide-up-first-card {
-    50% {
-      translate: 0;
-      opacity: 1;
-    }
-
-    90% {
-      translate: 0 -50cqi;
-      scale: 0.6;
-    }
-
-    100% {
-      translate: 0 -100cqi;
-      opacity: 0;
-    }
-  }
-
-  @keyframes slide-up-card {
-    50% {
-      opacity: 1;
-      translate: 0;
-      scale: 1;
-    }
-
-    90% {
-      opacity: 0.5;
-      scale: 0.6;
-      translate: 0 -50cqb;
-    }
-
-    100% {
-      translate: 0 -100cqi;
-      opacity: 0;
-    }
-  }
-}
+  .card-
